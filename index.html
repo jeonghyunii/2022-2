@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<input id="vol" type="range" max="100" min="0" value="100">
+	<button id="playBut">Lovely!</button>
+	<audio id="lovelySnd" src="lovely.mp3"></audio>
+	<img id="puppy" src="before.png">
+	<script type="text/javascript">
+
+	var state = false;
+puppy.onclick = function(){
+	if(state){
+		puppy.src = "before.png";
+		state = false;
+	}else{
+	   puppy.src = "after.png";
+		state = true;
+	}
+	
+}
+
+    vol.oninput = function (){
+	        lovelySnd.volume = vol.value / 100;
+     }
+
+	var state = "off";
+
+	playBut.onclick = function(){
+		if(state == "off"){
+			lovelySnd.play();
+			state = "on";
+		}else if(state == "on"){
+			lovelySnd.pause();
+			state = "off"
+		}
+
+	}
+	
+
+	</script>
+
+</body>
+</html>
